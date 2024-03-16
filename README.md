@@ -7,7 +7,7 @@
   GHAT(D)'s Demo <code>API Detail</code> - Endpoints [WIP]
 </h1>
 <h4 align="center">
-  Apart of the <a href="http://github.com/ooaklee/ghatd" target="_blank">GHAT(D) initiative</a>
+  Apart of the <a href="https://github.com/ooaklee/ghatd/pull/2" target="_blank">GHAT(D) initiative</a>
 </h4>
 
 > This repo is strongly linked to this [**GHAT(D) PR** being merged](https://github.com/ooaklee/ghatd/pull/2)
