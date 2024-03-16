@@ -1,0 +1,7 @@
+version: detail/v0alpha1
+type: api
+name: "demo-endpoints"
+description: |
+  The demo api detail is an available extension that
+  can be used by GHAT(D) to api functionality functionality.
+experimental: true
