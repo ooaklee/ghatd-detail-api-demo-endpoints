@@ -25,7 +25,8 @@ Kick off your project if you want to get an understanding of how you can structu
 ```sh
 go run api.go
 ```
-- By default you should be able to access your `api` Detail on http://localhost:4044
+- By default you should be able to access your `api` Detail on http://localhost:4088
+  - To access the endpoint in this `Detail`, you can visit the "words" endpoint at http://localhost:4088/api/v1/words.
 
 
 For the best experience developing your Detail, we recommend using hot reloading when developing by using:
