@@ -3,11 +3,13 @@ module github.com/ooaklee/ghatd-detail-api-demo-endpoints
 go 1.22.0
 
 require (
-	github.com/gorilla/mux v1.8.1
 	github.com/ooaklee/ghatd v0.1.1-0.20240316161116-dc3d856805a7
+	//>ghatd {{ define "ApiDetailGoModRequirePackages" }}
 	github.com/ooaklee/reply v1.0.0
 	github.com/stretchr/testify v1.8.4
 	go.uber.org/zap v1.27.0
+	github.com/gorilla/mux v1.8.1
+//>ghatd {{ end }}
 )
 
 require (
