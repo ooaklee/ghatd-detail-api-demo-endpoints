@@ -8,8 +8,8 @@ import (
 	"github.com/ooaklee/ghatd/external/router"
 )
 
-// remembererHandler expected methods for valid rememberer handler
-type remembererHandler interface {
+// dictionaryHandler expected methods for valid dictionary handler
+type dictionaryHandler interface {
 	DeleteWord(w http.ResponseWriter, r *http.Request)
 	CreateWord(w http.ResponseWriter, r *http.Request)
 	GetWords(w http.ResponseWriter, r *http.Request)
@@ -17,7 +17,7 @@ type remembererHandler interface {
 }
 
 const (
-	// ApiDictionaryPrefix base Uri prefix for all rememberer routes
+	// ApiDictionaryPrefix base Uri prefix for all dictionary routes
 	ApiDictionaryPrefix = common.ApiV1UriPrefix
 
 	// ApiWordsVariable Uri variable used to get actions words
@@ -25,33 +25,33 @@ const (
 )
 
 var (
-	// ApiDictionaryWordIdVariable Uri variable used to get rememberer Id out of Uri
+	// ApiDictionaryWordIdVariable Uri variable used to get dictionary Id out of Uri
 	ApiDictionaryWordIdVariable = fmt.Sprintf("/{%s}", DictionaryWordUriVariableId)
 
 	// ApiDictionarySpecificWordIdUriPath the Uri path for actioning a specific word
 	ApiDictionarySpecificWordIdUriPath = fmt.Sprintf("%s%s", ApiWordsVariable, ApiDictionaryWordIdVariable)
 )
 
-// AttachRoutesRequest holds everything needed to attach rememberer
+// AttachRoutesRequest holds everything needed to attach dictionary
 // routes to router
 type AttachRoutesRequest struct {
 	// Router main router being served by Api
 	Router *router.Router
 
-	// Handler valid rememberer handler
-	Handler remembererHandler
+	// Handler valid dictionary handler
+	Handler dictionaryHandler
 }
 
-// AttachRoutes attaches rememberer handler to corresponding
+// AttachRoutes attaches dictionary handler to corresponding
 // routes on router
 func AttachRoutes(request *AttachRoutesRequest) {
 	httpRouter := request.Router.GetRouter()
 
-	remembererRoutes := httpRouter.PathPrefix(ApiDictionaryPrefix).Subrouter()
+	dictionaryRoutes := httpRouter.PathPrefix(ApiDictionaryPrefix).Subrouter()
 
-	remembererRoutes.HandleFunc(ApiWordsVariable, request.Handler.GetWords).Methods(http.MethodGet, http.MethodOptions)
-	remembererRoutes.HandleFunc(ApiWordsVariable, request.Handler.CreateWord).Methods(http.MethodPost, http.MethodOptions)
-	remembererRoutes.HandleFunc(ApiDictionarySpecificWordIdUriPath, request.Handler.GetWordById).Methods(http.MethodGet, http.MethodOptions)
-	remembererRoutes.HandleFunc(ApiDictionarySpecificWordIdUriPath, request.Handler.DeleteWord).Methods(http.MethodDelete, http.MethodOptions)
+	dictionaryRoutes.HandleFunc(ApiWordsVariable, request.Handler.GetWords).Methods(http.MethodGet, http.MethodOptions)
+	dictionaryRoutes.HandleFunc(ApiWordsVariable, request.Handler.CreateWord).Methods(http.MethodPost, http.MethodOptions)
+	dictionaryRoutes.HandleFunc(ApiDictionarySpecificWordIdUriPath, request.Handler.GetWordById).Methods(http.MethodGet, http.MethodOptions)
+	dictionaryRoutes.HandleFunc(ApiDictionarySpecificWordIdUriPath, request.Handler.DeleteWord).Methods(http.MethodDelete, http.MethodOptions)
 
 }

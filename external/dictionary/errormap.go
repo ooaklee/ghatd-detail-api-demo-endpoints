@@ -8,7 +8,7 @@ import (
 // TODO: remove nolint
 // nolint will be used later
 var dictionaryErrorMap = map[string]reply.ErrorManifestItem{
-	ErrKeyDictionaryError:      {Title: "Bad Request", Detail: "Some rememberer error", StatusCode: 400},
+	ErrKeyDictionaryError:      {Title: "Bad Request", Detail: "Some dictionary error", StatusCode: 400},
 	ErrKeyWordWithIdNotFound:   {Title: "Resource Not Found", Detail: "No word can be found matching the Id provided", StatusCode: 404, Code: "R-002"},
 	ErrKeyWordWithNameNotFound: {Title: "Resource Not Found", Detail: "No word can be found matching the name provided", StatusCode: 404, Code: "R-003"},
 	ErrKeyWordAlreadyExists:    {Title: "Resource Conflict", Detail: "Word already exists!", StatusCode: 429, Code: "R-004"},
